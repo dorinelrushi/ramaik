@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Choice = 'PO' | 'JO';
 
@@ -238,6 +239,9 @@ export default function VotingPage() {
             <p style={styles.totalVotes}>
               Gjithsej: <strong>{total.toLocaleString()}</strong> votues
             </p>
+            <div style={{ display: "flex", justifyContent: "center", color: "red", marginTop: "15px", fontSize: "20px" }}>
+              <Link href='https://www.youtube.com/watch?v=WdqHZ9u9SIk' style={{ textAlign: "center", margin: "auto" }}>Kenga Per Kryeministrin Tone - Klikoje dhe degjoje</Link>
+            </div>
           </div>
         )}
 
@@ -253,7 +257,7 @@ export default function VotingPage() {
           Ky votim është anonim dhe regjistrohet vetëm një herë për pajisje.
         </p>
       </div>
-    </main>
+    </main >
   );
 }
 
