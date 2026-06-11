@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Votoni Shqipëri – Mendimi juaj ka rëndësi',
@@ -21,7 +22,21 @@ export default function RootLayout({
 }) {
   return (
     <html lang="sq">
-      <body cz-shortcut-listen="true">{children}</body>
+      <body cz-shortcut-listen="true">
+        {children}
+
+        {/* REKLAMA ADSTERRA */}
+        <div className="flex justify-center my-4">
+          <div id="container-9b33dd36f1e89b72d9c6c434468a00fe"></div>
+          <Script
+            id="adsterra-banner"
+            src="https://pl29712153.effectivecpmnetwork.com/9b33dd36f1e89b72d9c6c434468a00fe/invoke.js"
+            strategy="afterInteractive"
+            data-cfasync="false"
+          />
+        </div>
+
+      </body>
     </html>
   );
 }
