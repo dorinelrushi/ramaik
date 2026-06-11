@@ -96,8 +96,8 @@ export default function VotingPage() {
 
   // ── Derived stats ─────────────────────────────────────────────────
   const total = state.po + state.jo;
-  const poPct  = total > 0 ? Math.round((state.po / total) * 100) : 0;
-  const joPct  = total > 0 ? Math.round((state.jo / total) * 100) : 0;
+  const poPct = total > 0 ? Math.round((state.po / total) * 100) : 0;
+  const joPct = total > 0 ? Math.round((state.jo / total) * 100) : 0;
 
   return (
     <main style={styles.main}>
@@ -259,9 +259,9 @@ export default function VotingPage() {
 
 // ─── Particle helper ──────────────────────────────────────────────────────────
 function particleStyle(i: number): React.CSSProperties {
-  const sizes  = [6, 4, 8, 5, 7, 3, 6, 4];
-  const tops   = [10, 30, 60, 80, 20, 70, 45, 90];
-  const lefts  = [5, 15, 25, 70, 80, 90, 50, 35];
+  const sizes = [6, 4, 8, 5, 7, 3, 6, 4];
+  const tops = [10, 30, 60, 80, 20, 70, 45, 90];
+  const lefts = [5, 15, 25, 70, 80, 90, 50, 35];
   const delays = [0, 1, 2, 0.5, 1.5, 0.8, 2.5, 1.2];
   return {
     width: sizes[i],
@@ -285,14 +285,18 @@ const styles: Record<string, React.CSSProperties> = {
   main: {
     position: 'relative',
     minHeight: '100vh',
+
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '20px',
     fontFamily: "'Inter', sans-serif",
+
+
   },
   bgWrapper: {
-    position: 'fixed',
+
+
     inset: 0,
     zIndex: 0,
   },
@@ -313,6 +317,7 @@ const styles: Record<string, React.CSSProperties> = {
   particles: {
     position: 'fixed',
     inset: 0,
+
     zIndex: 1,
     pointerEvents: 'none',
   },
