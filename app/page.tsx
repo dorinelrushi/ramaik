@@ -3,8 +3,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Rregullorja from './Rregullorja';
-
 type Choice = 'PO' | 'JO';
 
 interface VoteState {
@@ -244,7 +242,7 @@ export default function VotingPage() {
               <Link href='https://www.youtube.com/watch?v=WdqHZ9u9SIk' style={{ textAlign: "center", margin: "auto" }}>Kenga Per Kryeministrin Tone - Klikoje dhe degjoje</Link>
             </div>
             <div style={{ display: "flex", justifyContent: "center", color: "white", textDecoration: "underline", marginTop: "15px", fontSize: "20px" }}>
-              <Link href="./Rregullorja" style={{ textAlign: "center", margin: "auto" }}>Rregullorja</Link>
+              <Link href='/Rregullorja' style={{ textAlign: "center", margin: "auto" }}>Rregullorja</Link>
             </div>
           </div>
         )}
