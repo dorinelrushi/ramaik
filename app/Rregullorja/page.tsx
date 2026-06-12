@@ -26,7 +26,7 @@ export default function Rregullorja() {
                 <p>Duke përdorur këtë faqe, pranoni se po merrni pjesë në një sondazh informues dhe jo në një proces zgjedhor ose referendum të organizuar nga institucionet shtetërore.</p>
             </div>
 
-            <h2>© 2025 – Të gjitha të drejtat e rezervuara. Ky projekt është i pavarur dhe nuk ka lidhje me asnjë institucion shtetëror apo organizatë politike.</h2>
+            <h2>© 2026 – Të gjitha të drejtat e rezervuara. Ky projekt është i pavarur dhe nuk ka lidhje me asnjë institucion shtetëror apo organizatë politike.</h2>
         </div>
     )
 }
