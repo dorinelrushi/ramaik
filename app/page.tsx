@@ -239,7 +239,7 @@ export default function VotingPage() {
               Gjithsej: <strong>{total.toLocaleString()}</strong> votues
             </p>
             <div style={{ display: "flex", justifyContent: "center", color: "red", marginTop: "15px", fontSize: "20px" }}>
-              <Link href='https://www.youtube.com/watch?v=s0BaVjhbNB4' style={{ textAlign: "center", margin: "auto" }}>Kenga Per Kryeministrin Tone - Klikoje dhe degjoje</Link>
+              <Link href='https://www.youtube.com/watch?v=SoV4pyPOVV4' style={{ textAlign: "center", margin: "auto" }}>Kenga Per Kryeministrin Tone - Klikoje dhe degjoje</Link>
             </div>
             <div style={{ display: "flex", justifyContent: "center", color: "white", textDecoration: "underline", marginTop: "15px", fontSize: "20px" }}>
               <Link href='/Rregullorja' style={{ textAlign: "center", margin: "auto" }}>Rregullorja</Link>
