@@ -1,9 +1,11 @@
 import mongoose, { Schema, Document, Model } from 'mongoose';
+import { DEFAULT_POLL_ID } from '@/lib/polls';
 
 // ─── Vote Schema ──────────────────────────────────────────────────────────────
 export interface IVote extends Document {
-  ip: string;        // Voter's IP address (used to prevent duplicate votes)
-  choice: 'PO' | 'JO'; // PO = Yes, JO = No
+  ip: string;
+  pollId: string;
+  choice: string;
   votedAt: Date;
 }
 
@@ -12,13 +14,19 @@ const VoteSchema: Schema<IVote> = new Schema(
     ip: {
       type: String,
       required: true,
-      unique: true,  // One vote per IP
       trim: true,
+    },
+    pollId: {
+      type: String,
+      required: true,
+      default: DEFAULT_POLL_ID,
+      trim: true,
+      index: true,
     },
     choice: {
       type: String,
-      enum: ['PO', 'JO'],
       required: true,
+      trim: true,
     },
     votedAt: {
       type: Date,
@@ -31,17 +39,36 @@ const VoteSchema: Schema<IVote> = new Schema(
   }
 );
 
+// One vote per IP per question
+VoteSchema.index({ ip: 1, pollId: 1 }, { unique: true });
+
 // ─── Vote Tally Schema ────────────────────────────────────────────────────────
 export interface IVoteTally extends Document {
-  po: number;
-  jo: number;
+  pollId: string;
+  /** Flexible option counts, e.g. { PO: 10, JO: 5 } or { "600": 3, "800": 7 } */
+  counts: Record<string, number>;
+  /** Legacy fields kept for migration of older documents */
+  po?: number;
+  jo?: number;
   lastUpdated: Date;
 }
 
 const VoteTallySchema: Schema<IVoteTally> = new Schema(
   {
-    po: { type: Number, default: 0 },
-    jo: { type: Number, default: 0 },
+    pollId: {
+      type: String,
+      required: true,
+      unique: true,
+      default: DEFAULT_POLL_ID,
+      trim: true,
+    },
+    counts: {
+      type: Schema.Types.Mixed,
+      default: {},
+    },
+    // legacy (pre multi-option)
+    po: { type: Number, required: false },
+    jo: { type: Number, required: false },
     lastUpdated: { type: Date, default: Date.now },
   },
   {
