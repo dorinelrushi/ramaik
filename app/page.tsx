@@ -1,5 +1,5 @@
-import VotingCard from '@/components/VotingCard';
+import DebateView from '@/components/DebateView';
 
 export default function HomePage() {
-  return <VotingCard />;
+  return <DebateView />;
 }
